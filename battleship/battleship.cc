@@ -443,6 +443,7 @@ void battleship::play()
 	string temp_c;
 	char letters[] = {'A', 'B', 'C', 'D', 'E'};
 	player_moves = 0;
+	computer_moves = 0;
 
 	stringstream ss1;
 	srand(time(NULL));
@@ -465,7 +466,7 @@ void battleship::play()
 	while(!game_over())
 	{
 		cin >> temp;
-		while(!check_past_moves(temp))
+		while(!check_player_past_moves(temp))
 		{
 			cout << "Previously entered coordinates, try again." << endl;
 			cin >> temp;
@@ -479,8 +480,23 @@ void battleship::play()
 		shoot_player_torpedo(temp);
 		past_player_moves[player_moves] = temp;
 		player_moves++;
+		while(!check_computer_past_moves(temp_c))
+		{
+			stringstream ss1;
+			srand(time(NULL));
+			int temp1 = rand()%5 +1;
+			int temp2 = rand()%5 +1;
+			int temp3 = rand()%5;
+			int temp4 = rand()%5;
+			char temp5 = letters[temp3];
+			char temp6 = letters[temp4];
+			ss1 << temp5 << temp1;
+			temp_c = ss1.str();
+		}
 		cout << "The computer has guessed " << temp_c << "." <<  endl;
 		shoot_computer_torpedo(temp_c);
+		past_computer_moves[computer_moves] = temp_c;
+		computer_moves++;
 		stringstream ss1;
 		srand(time(NULL));
 		int temp1 = rand()%5 +1;
@@ -496,12 +512,24 @@ void battleship::play()
 	}
 }
 
-bool battleship::check_past_moves(string s)
+bool battleship::check_player_past_moves(string s)
 {
 	for(int i = 0; i < 25; i++)
 	{
 		if(s == past_player_moves[i])
 		{
+			return false;
+		}
+	}
+	return true;
+}
+bool battleship::check_computer_past_moves(string s)
+{
+	for(int i = 0; i < 25; i++)
+	{
+		if(s == past_computer_moves[i])
+		{
+			cout << "hello" << endl;
 			return false;
 		}
 	}

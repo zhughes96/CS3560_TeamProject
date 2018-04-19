@@ -10,11 +10,12 @@ class battleship
 		void display_player_board();
 		void shoot_player_torpedo(string s);
 		bool is_legal(string s);
-		bool check_past_moves(string s);
+		bool check_player_past_moves(string s);
 
 		void display_computer_board();
 		void create_computer_board();
 		void shoot_computer_torpedo(string s);
+		bool check_computer_past_moves(string s);
 
 		void play();
 		bool game_over();
@@ -28,4 +29,6 @@ class battleship
 		string comp_ship2;
 		string past_player_moves[25];
 		int player_moves;
+		string past_computer_moves[25];
+		int computer_moves;
 };
