@@ -27,8 +27,8 @@ class battleship
 		string ship2;
 		string comp_ship1;
 		string comp_ship2;
-		string past_player_moves[25];
+		string past_player_moves[50];
 		int player_moves;
-		string past_computer_moves[25];
+		string past_computer_moves[50];
 		int computer_moves;
 };

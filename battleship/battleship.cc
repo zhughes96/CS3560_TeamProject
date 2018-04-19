@@ -514,7 +514,7 @@ void battleship::play()
 
 bool battleship::check_player_past_moves(string s)
 {
-	for(int i = 0; i < 25; i++)
+	for(int i = 0; i < 50; i++)
 	{
 		if(s == past_player_moves[i])
 		{
@@ -525,7 +525,7 @@ bool battleship::check_player_past_moves(string s)
 }
 bool battleship::check_computer_past_moves(string s)
 {
-	for(int i = 0; i < 25; i++)
+	for(int i = 0; i < 50; i++)
 	{
 		if(s == past_computer_moves[i])
 		{
