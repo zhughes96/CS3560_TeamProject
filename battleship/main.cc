@@ -5,7 +5,6 @@
 
 int main()
 {
-	char answer;
 	battleship game;
 	game.play();
 	return 0;

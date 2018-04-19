@@ -94,7 +94,8 @@ bool battleship::is_legal(string s)
 	else if(s == "E1")
 	{
 		return true;
-	}else if(s == "E2")
+	}
+	else if(s == "E2")
 	{
 		return true;
 	}
@@ -120,21 +121,7 @@ bool battleship::is_legal(string s)
 void battleship::create_player_board()
 {
 	stringstream ss;
-	cout << "Enter the coordinate of your ships." << endl;
-	cin >> ship1;
-	cin >> ship2;
-	while(!is_legal(ship1) || !is_legal(ship2))
-	{
-		cout << "Invalid coordinates, please enter new ship coordinates." << endl;
-		cin >> ship1;
-		cin >> ship2;
-	}
-	while(ship1 == ship2)
-	{
-		cout << "Your first ship cannot be in the same position as your second, please enter the coordinates for your second ship again." << endl;
-		cin >> ship2;
-	}
-
+	
 	for(int i = 0; i < 5; i++)
 	{
 		for(int j = 0; j < 5; j++)
@@ -175,6 +162,21 @@ void battleship::create_player_board()
 				
 			}
 		}
+	}
+	display_player_board();
+	cout << "Enter the coordinate of your ships." << endl;
+	cin >> ship1;
+	cin >> ship2;
+	while(!is_legal(ship1) || !is_legal(ship2))
+	{
+		cout << "Invalid coordinates, please enter new ship coordinates." << endl;
+		cin >> ship1;
+		cin >> ship2;
+	}
+	while(ship1 == ship2)
+	{
+		cout << "Your first ship cannot be in the same position as your second, please enter the coordinates for your second ship again." << endl;
+		cin >> ship2;
 	}
 	for(int i = 0; i < 5; i++)
 	{
@@ -440,6 +442,7 @@ void battleship::play()
 	string temp;
 	string temp_c;
 	char letters[] = {'A', 'B', 'C', 'D', 'E'};
+	player_moves = 0;
 
 	stringstream ss1;
 	srand(time(NULL));
@@ -462,6 +465,12 @@ void battleship::play()
 	while(!game_over())
 	{
 		cin >> temp;
+		while(!check_past_moves(temp))
+		{
+			cout << "Previously entered coordinates, try again." << endl;
+			cout << endl;
+			cin >> temp;
+		}
 		while(!is_legal(temp))
 		{
 			cout << "Invalid coordinates, try again." << endl;
@@ -469,6 +478,8 @@ void battleship::play()
 			cin >> temp;
 		}
 		shoot_player_torpedo(temp);
+		past_player_moves[player_moves] = temp;
+		player_moves++;
 		cout << "The computer has guessed " << temp_c << "." <<  endl;
 		shoot_computer_torpedo(temp_c);
 		stringstream ss1;
@@ -483,5 +494,21 @@ void battleship::play()
 		temp_c = ss1.str();
 		cout << "Enter coorindates to be fired upon." << endl;
 
+	}
+}
+
+bool battleship::check_past_moves(string s)
+{
+	for(int i = 0; i < 25; i++)
+	{
+		if(s == past_player_moves[i])
+		{
+			cout << "Past coordinates: " << past_player_moves[i] << endl;
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 }
