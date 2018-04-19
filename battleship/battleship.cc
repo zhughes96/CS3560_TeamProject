@@ -529,7 +529,6 @@ bool battleship::check_computer_past_moves(string s)
 	{
 		if(s == past_computer_moves[i])
 		{
-			cout << "hello" << endl;
 			return false;
 		}
 	}
