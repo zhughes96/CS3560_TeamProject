@@ -11,103 +11,103 @@ using namespace std;
 
 bool battleship::is_legal(string s)
 {
-	if(s == "A1")
+	if(s == "A1" || s == "a1")
 	{
 		return true;
 	}
-	else if(s == "A2")
+	else if(s == "A2" || s == "a2")
 	{
 		return true;
 	}
-	else if(s == "A3")
+	else if(s == "A3" || s == "a3")
 	{
 		return true;
 	}
-	else if(s == "A4")
+	else if(s == "A4" || s == "a4")
 	{
 		return true;
 	}
-	else if(s == "A5")
+	else if(s == "A5" || s == "a5")
 	{
 		return true;
 	}
-	else if(s == "B1")
+	else if(s == "B1" || s == "b1")
 	{
 		return true;
 	}
-	else if(s == "B2")
+	else if(s == "B2" || s == "b2")
 	{
 		return true;
 	}
-	else if(s == "B3")
+	else if(s == "B3" || s == "b3")
 	{
 		return true;
 	}
-	else if(s == "B4")
+	else if(s == "B4" || s == "b4")
 	{
 		return true;
 	}
-	else if(s == "B5")
+	else if(s == "B5" || s == "b5")
 	{
 		return true;
 	}
-	else if(s == "C1")
+	else if(s == "C1" || s == "c1")
 	{
 		return true;
 	}
-	else if(s == "C2")
+	else if(s == "C2" || s == "c2")
 	{
 		return true;
 	}
-	else if(s == "C3")
+	else if(s == "C3" || s == "c3")
 	{
 		return true;
 	}
-	else if(s == "C4")
+	else if(s == "C4" || s == "c4")
 	{
 		return true;
 	}
-	else if(s == "C5")
+	else if(s == "C5" || s == "c5")
 	{
 		return true;
 	}
-	else if(s == "D1")
+	else if(s == "D1" || s == "d1")
 	{
 		return true;
 	}
-	else if(s == "D2")
+	else if(s == "D2" || s == "d2")
 	{
 		return true;
 	}
-	else if(s == "D3")
+	else if(s == "D3" || s == "d3")
 	{
 		return true;
 	}
-	else if(s == "D4")
+	else if(s == "D4" || s == "d4")
 	{
 		return true;
 	}
-	else if(s == "D5")
+	else if(s == "D5" || s == "d5")
 	{
 		return true;
 	}
-	else if(s == "E1")
+	else if(s == "E1" || s == "e1")
 	{
 		return true;
 	}
-	else if(s == "E2")
+	else if(s == "E2" || s == "e2")
 	{
 		return true;
 	}
-	else if(s == "E3")
+	else if(s == "E3" || s == "e3")
 	{
 		return true;
 	}
-	else if(s == "E4")
+	else if(s == "E4" || s == "e4")
 	{
 		return true;
 	}
-	else if(s == "E5")
+	else if(s == "E5" || s == "e5")
 	{
 		return true;
 	}
