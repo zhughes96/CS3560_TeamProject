@@ -121,7 +121,7 @@ bool battleship::is_legal(string s)
 void battleship::create_player_board()
 {
 	stringstream ss;
-	
+
 	for(int i = 0; i < 5; i++)
 	{
 		for(int j = 0; j < 5; j++)
@@ -468,7 +468,6 @@ void battleship::play()
 		while(!check_past_moves(temp))
 		{
 			cout << "Previously entered coordinates, try again." << endl;
-			cout << endl;
 			cin >> temp;
 		}
 		while(!is_legal(temp))
@@ -503,12 +502,8 @@ bool battleship::check_past_moves(string s)
 	{
 		if(s == past_player_moves[i])
 		{
-			cout << "Past coordinates: " << past_player_moves[i] << endl;
 			return false;
 		}
-		else
-		{
-			return true;
-		}
 	}
+	return true;
 }
